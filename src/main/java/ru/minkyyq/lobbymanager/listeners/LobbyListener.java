@@ -57,6 +57,7 @@ public class LobbyListener implements Listener {
                 Location spawn = new Location(world, x, y, z, yaw, pitch);
                 player.teleport(spawn);
                 player.setBedSpawnLocation(spawn);
+                player.sendMessage(HexUtil.translate(config.getNotVoid()));
             }
         }
     }

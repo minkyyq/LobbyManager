@@ -15,12 +15,12 @@ message:
     - "sdf"
 
 settings:
-  blockCmd: true #если false, то команды можно будет юзать
-  blockDrop: true #если true, то предметы можно будет выкидывать
-  blockChat: true #если true, то игроки смогут писать в чат
-  blockBreak: true #запрещать ли ставить блоки?
-  blockPlace: true #запрещать ломать блоки?
-  blockPvp: true #запрещать пвп?
+  blockCmd: true
+  blockDrop: true
+  blockChat: true
+  blockBreak: true
+  blockPlace: true
+  blockPvp: true
 
   joinmsg: true #если true, то сообщения "игрок такой-то зашел на сервер" или вышел будут показываться
   joinmsgchat: true #если true, то при заходе игроку напишут сообщения в чат
@@ -46,4 +46,4 @@ item:
     - " fds"
     - " fds"
   open_command: "dm open %player% server" # %player% - игрок
-  glow: true
+  glow: true #dont work
