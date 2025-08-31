@@ -2,7 +2,7 @@ name: LobbyManager
 version: '${project.version}'
 main: ru.minkyyq.lobbymanager.LobbyManager
 authors:
-  - SIYNES (олух)
+  - SIYNES (попросил добавить)
   - minkyyq
 api-version: '1.16'
 commands:
