@@ -1,5 +1,6 @@
 package ru.minkyyq.lobbymanager.config;
 
+import com.sun.org.apache.xerces.internal.xs.StringList;
 import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -34,19 +35,23 @@ public class ConfigManager {
     private String cfgreload;
     private String notperm;
     private String notVoid;
-    private String joinMsg;
+    private String joinMsgBC;
     private String notchat;
     private List<String> joinMsgChat;
-    private String leaveMsgChat;
+    private String leaveMsgBC;
     private int maxHP;
+    private String gamemode;
 
     private boolean cmduse;
     private boolean drop;
-    private boolean joinmsg;
+    private boolean joinmsgB;
     private boolean jointpcord;
-    private boolean joinmsgchat;
+    private boolean joinmsgchatB;
     private boolean useChat;
     private boolean tptovoid;
+    private boolean blockBreak;
+    private boolean blockPlace;
+    private boolean pvp;
 
     private int spawnX;
     private int spawnY;
@@ -55,18 +60,26 @@ public class ConfigManager {
     private double spawnPitch;
     private String spawnWorld;
 
+    private String itemName;
+    private String itemMaterial;
+    private List<String> itemLore;
+    private boolean glow;
+    private String itemCommand;
+    private boolean itemEnable;
+
 
     private void parse() {
         notDrop = config.getString("message.notdrop", "нельзя");
         notCmd = config.getString("message.notcmd", "нельзя писать команды");
         notperm = config.getString("message.notperm", "нету прав");
         notVoid = config.getString("message.notvoid", "куда ты сьебаться захотел?");
-        joinMsg = config.getString("message.joinmsg", "[+] Игрок зашел ееее");
+        joinMsgBC = config.getString("message.joinmsg", "[+] Игрок зашел ееее");
         joinMsgChat = config.getStringList("message.joinmsgchat");
-        leaveMsgChat = config.getString("message.leavemsgchat", "он ливнул");
+        leaveMsgBC = config.getString("message.leavemsgchat", "он ливнул");
         cfgreload = config.getString("message.reload", "перезагрузил");
         notchat = config.getString("message.notchat");
         maxHP = config.getInt("settings.maxHP");
+        gamemode = config.getString("settings.GAMEMODE");
 
         spawnX = config.getInt("settings.spawn.x");
         spawnY = config.getInt("settings.spawn.y");
@@ -75,13 +88,25 @@ public class ConfigManager {
         spawnPitch = config.getDouble("settings.spawn.pitch");
         spawnWorld = config.getString("settings.spawn.world");
 
-        cmduse = config.getBoolean("settings.cmdUse");
-        drop = config.getBoolean("settings.drop");
-        joinmsg = config.getBoolean("settings.joinmsg");
+        cmduse = config.getBoolean("settings.blockCmd");
+        drop = config.getBoolean("settings.blockDrop");
+        joinmsgB = config.getBoolean("settings.joinmsg");
         jointpcord = config.getBoolean("settings.jointpcord");
-        joinmsgchat = config.getBoolean("settings.joinmsgchat");
-        useChat = config.getBoolean("settings.useChat");
-        tptovoid = config.getBoolean("settings.tptovoid");
+        joinmsgchatB = config.getBoolean("settings.joinmsgchat");
+        useChat = config.getBoolean("settings.blockChat");
+        tptovoid = config.getBoolean("settings.killtovoid");
+
+        itemName = config.getString("item.name");
+        itemLore = config.getStringList("item.lore");
+        itemMaterial = config.getString("item.material");
+        itemCommand = config.getString("item.open_command");
+        glow = config.getBoolean("item.glow");
+        itemEnable = config.getBoolean("item.enable");
+
+        blockBreak = config.getBoolean("settings.blockBreak");
+        blockPlace = config.getBoolean("settings.blockPlace");
+
+        pvp = config.getBoolean("settings.blockPvp");
     }
 
     private void loadConfig() {
